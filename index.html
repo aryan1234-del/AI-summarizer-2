@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Meeting Summarizer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>AI Meeting Summarizer</h1>
+    <p class="muted">This full-stack application allows user to upload meeting transcript and with a custom promptInput</p>
+
+    <section class="card">
+      <h2>1) Input Transcript</h2>
+      <div class="grid">
+        <div>
+          <label class="label">Upload a .txt file</label>
+          <input type="file" id="fileInput" accept=".txt" />
+          <p class="hint">Or paste text below</p>
+          <textarea id="textInput" rows="10" placeholder="Paste your transcript here..."></textarea>
+        </div>
+        <div>
+          <label class="label">Custom Instruction (Optional)</label>
+          <input id="promptInput" type="text" placeholder='e.g., "List only action items and deadlines"' />
+          <button id="summarizeBtn">🔎 Generate Summary</button>
+          <div id="status" class="status"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>2) Summary (Editable)</h2>
+      <textarea id="summaryBox" rows="14" placeholder="Your AI summary will appear here..."></textarea>
+      <div class="row">
+        <button id="copyBtn">📋 Copy</button>
+        <button id="clearBtn" class="ghost">Clear</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>3) Share via Email</h2>
+      <div class="grid">
+        <div>
+          <label class="label">Recipient Email</label>
+          <input id="emailTo" type="email" placeholder="name@example.com" />
+        </div>
+        <div>
+          <label class="label">Subject</label>
+          <input id="emailSubject" type="text" value="Meeting Summary" />
+        </div>
+      </div>
+      <button id="sendBtn">✉️ Send Email</button>
+      <div id="emailStatus" class="status"></div>
+    </section>
+
+    <footer>
+      <label class="label small">Backend URL</label>
+      <input id="apiBase" type="text" value="http://localhost:5000" />
+      <p class="muted small">Tip: Change this if your backend runs on a different host/port (e.g., when deployed).</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
